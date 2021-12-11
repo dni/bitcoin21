@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/btcpay.css">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+  <section class="main">
+     <img class="rotate linear infinite" src="img/btc.png" height="140" width="140">
+     <h1>Willkommen auf Bitcoin-21.org</h1>
+     <p>
+      Nachfolgende Links werden &uuml;ber <u>meine eigene Fullnode</u> zur Verf&uuml;gung gestellt.
+      Ganz nach dem Motto <b>"Don't trust, verify!"</b>.
+     </p>
+     <div class="applinks">
+      <a target="_blank" class="applink" href="https://bitcoin-21.org:5010/">Mempool</a>
+      <a target="_blank" class="applink" href="https://bitcoin-21.org:5020/">Bitcoin Explorer</a>
+      <a target="_blank" class="applink" href="https://bitcoin-21.org:5040/">Spenden</a>
+     </div>
+  </section>
+
+  <section class="btcpay-pay-button">
+    <h3>Zahlungen &uuml;ber BTCPay Server, ihr k&ouml;nnt den Betrag eingeben oder den Regler verschieben</h3>
+    <form method="POST" action="https://btcpay.bitcoin-21.org/api/v1/invoices" class="btcpay-form btcpay-form--block">
+      <input type="hidden" name="storeId" value="4QjDeY6EWwE5iTW99zWbTrbgyWmsyJ9jKR39YrmNZFiV" />
+      <input type="hidden" name="browserRedirect" value="https://bitcoin-21.org" />
+      <input type="hidden" name="notifyEmail" value="bitcoin-21.org@protonmail.com" />
+      <div class="btcpay-custom-container">
+        <input id="btcpay-input-price" name="price" type="text" min="0" max="none" step="any" value="0" style="width: 209px;" oninput="event.preventDefault();isNaN(event.target.value)? document.querySelector('#btcpay-input-price').value = null : event.target.value; if (this.value < undefined) {this.value = undefined; } else if(this.value > undefined){  this.value = undefined;}" onchange= "var el=document.querySelector('#btcpay-input-price'); var price = parseInt(el.value);  if(price< 0) { el.value = 0} else if(price> 10000) { el.value = 10000} document.querySelector('#btcpay-input-range').value = el.value" />
+        <select name="currency">
+          <option value="USD">USD</option>
+          <option value="GBP">GBP</option>
+          <option value="EUR" selected>EUR</option>
+          <option value="BTC">BTC</option>
+        </select>
+        <input class="btcpay-input-range" id="btcpay-input-range" value="null" type="range" min="0" max="1000" step="0.01" style="width:209px;margin-bottom:15px;" oninput="document.querySelector('#btcpay-input-price').value = document.querySelector('#btcpay-input-range').value" />
+      </div>
+      <input type="image" class="submit" name="submit" src="https://btcpay.bitcoin-21.org/img/paybutton/pay.svg" style="width:209px" alt="Pay with BtcPay, Self-Hosted Bitcoin Payment Processor">
+    </form>
+  </section>
+
+
+  <section class="node">
+    <h3>Hier k&ouml;nnt ihr einen Kanal zu meiner Node &ouml;ffnen.</h3>
+    <p><a href="https://1ml.com/node/0369a862b7536b03fc9a66ec2722735fa8276f93043fde708d6ba6c607318af548">Link zu 1ML.com</a><br /></p>
+    <img src="img/node_qr.png" height="150" width="150"><br />
+  </section>
+
+  <footer>
+    &copy; by WolfofBitcoin2020 || Contact me: |
+    <a href="https://t.me/Wolf_of_Bitcoin_2020">Telegram</a> |
+    <a href="https://twitter.com/wolfofbitcoin20">Twitter</a>
+  </footer>
+
+</body>
+</html>
